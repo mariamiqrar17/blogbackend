@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { CommentService } from './comment.service';
 import { CommentController } from './comment.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from '../auth/auth.module';
 
-import { Comments, CommentsSchema } from 'src/schemas/comments.schema';  // Assuming your model class is named Comments
+import { Comments, CommentsSchema } from '../schemas/comments.schema';  // Assuming your model class is named Comments
 
 @Module({
   imports: [

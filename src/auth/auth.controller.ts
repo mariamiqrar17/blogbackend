@@ -8,19 +8,23 @@ import {
   Delete,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { signUpDto } from 'src/dto/signup.dto';
-import { logInDto } from 'src/dto/login.dto';
-import { User } from 'src/schemas/user.schema';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { signUpDto } from '../dto/signup.dto';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { logInDto } from '../dto/login.dto';
+import { User } from '../schemas/user.schema';
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('signup')
-  signUp(@Body() signUpDto: signUpDto): Promise<{message: string;}> {
+  signUp(@Body() signUpDto: signUpDto): Promise<{ message: string }> {
     return this.authService.signUp(signUpDto);
   }
   @Post('login')
-  login(@Body() logInDto: logInDto): Promise<{message: string,token:string, user: User}> {
+  login(
+    @Body() logInDto: logInDto,
+  ): Promise<{ message: string; token: string; user: User }> {
     return this.authService.logIn(logInDto);
   }
 }
